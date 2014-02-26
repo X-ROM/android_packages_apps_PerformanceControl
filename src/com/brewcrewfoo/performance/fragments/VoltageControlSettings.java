@@ -35,7 +35,6 @@ import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import com.brewcrewfoo.performance.R;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.util.Constants;
 import com.brewcrewfoo.performance.util.Helpers;
 import com.brewcrewfoo.performance.util.Voltage;
@@ -166,13 +165,6 @@ public class VoltageControlSettings extends Fragment implements Constants {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-            case R.id.app_settings:
-                Intent intent = new Intent(context, PCSettings.class);
-                startActivity(intent);
-                break;
             case R.id.volt_increase:
                 IncreasebyStep(25);
                 break;
@@ -197,6 +189,8 @@ public class VoltageControlSettings extends Fragment implements Constants {
                                         }
                 }).create().show();
                 break;
+            default:
+                return false;
         }
         return true;
     }

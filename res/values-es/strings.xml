@@ -181,11 +181,6 @@ Translation by DaniPhii
     <!-- Información de CPU -->
     <string name="kernel_info">INFORMACIÓN DEL KERNEL LINUX</string>
     <string name="cpu_info">Información de CPU</string>
-    <string name="first_run_title">Comprobando permisos de superusuario…</string>
-    <string name="su_success_title">¡Correcto!</string>
-    <string name="su_failed_title">¡Algo fue mal!</string>
-    <string name="first_run_message">La aplicación necesita comprobar los permisos de superusuario y la versión de BusyBox.</string>
-    <string name="su_failed_su_or_busybox">No fue posible conseguir los permisos o no se encontró BusyBox.</string>
 
     <!-- Herramientas -->
     <string name="prefcat_sh">LÍNEA DE COMANDOS PERSONALIZADA</string>
@@ -199,18 +194,6 @@ Translation by DaniPhii
     <string name="wipe_cache_title">Limpiar las cachés</string>
     <string name="ps_wipe_cache">Partición caché: %s</string>
     <string name="wipe_cache_msg">Al finalizar, se reiniciará el sistema. ¿Continuar?</string>
-
-    <string name="prefcat_flash_img">FLASHEAR FICHERO IMG</string>
-    <string name="kernel_img_title">Flashear kernel</string>
-    <string name="ps_kernel_img">Flashear ficheros boot.img como un kernel. Puedes elegir un fichero boot.img individual o cualquier ZIP que contenga el boot.img deseado</string>
-    <string name="recovery_img_title">Flashear Recovery</string>
-    <string name="ps_recovery_img">Flashear fichero recovery.img. Puedes elegir un fichero recovery.img individual o cualquier ZIP que contenga el recovery.img deseado</string>
-    <string name="btn_choose">Elegir %s</string>
-    <string name="unsupported_info">Tu terminal no es compatible.</string>
-    <string name="flash_info">será flasheado en la partición\n%s\n como</string>
-    <string name="dir_parent">&lt;Directorio raíz&gt;</string>
-    <string name="dir">&lt;DIR&gt;</string>
-    <string name="bkexit">Pulsa de nuevo para salir</string>
 
     <string name="prefcat_residual_files">LIMPIAR ARCHIVOS RESIDUALES</string>
     <string name="residual_files_title">Hacer limpieza</string>

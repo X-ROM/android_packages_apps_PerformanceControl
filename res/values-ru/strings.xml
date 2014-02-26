@@ -181,11 +181,6 @@
     <string name="kernel_info">ИНФОРМАЦИЯ О ЯДРЕ</string>
     <string name="cpu_info">Информация о процессоре</string>
     <string name="mem_info">ИНФОРМАЦИЯ О ПАМЯТИ</string>
-    <string name="first_run_title">Сначала проверьте права root</string>
-    <string name="su_success_title">Выполнено!</string>
-    <string name="su_failed_title">Ой!</string>
-    <string name="first_run_message">Приложение проверит права ROOT и наличие Busybox.</string>
-    <string name="su_failed_su_or_busybox">Нет доступа Root или не установлен Busybox.</string>
     <!-- Tools -->
     <string name="prefcat_sh">КАСТОМНАЯ КОММАНДНАЯ СТРОКА</string>
     <string name="sh_title">Редактировать команду</string>
@@ -198,17 +193,6 @@
     <string name="wipe_cache_title">Очистить кэш и dalvik кэш</string>
     <string name="ps_wipe_cache">Раздел Кэш: %s</string>
     <string name="wipe_cache_msg">По окончанию, система перезагрузится. Продолжить?</string>
-    <string name="prefcat_flash_img">ПРОШИТЬ ФАЙЛ IMG</string>
-    <string name="kernel_img_title">Прошить ЯДРО</string>
-    <string name="ps_kernel_img">Прошить файл boot.img или любой архив содержащий boot.img как ядро</string>
-    <string name="recovery_img_title">Прошить RECOVERY</string>
-    <string name="ps_recovery_img">Прошить файл recovery.img или любой архив содержащий recovery.img как Рекавери</string>
-    <string name="btn_choose">Выберите %s</string>
-    <string name="unsupported_info">Устройство не поддерживается</string>
-    <string name="flash_info">будет прошит в раздел\n%s\n как</string>
-    <string name="dir_parent">Parent DIR</string>
-    <string name="dir">DIR</string>
-    <string name="bkexit">Нажмите опять чтобы выйти</string>
     <string name="prefcat_residual_files">ОЧИСТИТЬ ОСТАВШИЕСЯ ФАЙЛЫ</string>
     <string name="residual_files_title">Очистить оставшиеся файлы</string>
     <string name="btncleanall">Очистить все</string>
@@ -306,13 +290,6 @@
     <!-- Vibration Intensity -->
     <string name="prefcat_viber">ВИБРАЦИЯ</string>
     <string name="viber_title">Настройка Интенсивности вибрации</string>
-    <!-- PC Settings -->
-    <string name="pt_use_light_theme">Использовать светлую тему</string>
-    <string name="ps_use_light_theme">Если выбрать, приложение будет использовать светлую тему Holo</string>
-    <string name="pt_widget_bg_color">Цвет фона виджета</string>
-    <string name="pt_widget_text_color">Цвет текста виджета</string>
-    <string name="pt_ver">"Версия - "</string>
-    <string name="pt_show_tabs">Видимость указан Tabs</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Выбор цвета</string>
     <string name="press_color_to_apply">Нажмите на цвет чтобы выбрать</string>

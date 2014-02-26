@@ -18,11 +18,9 @@ import android.preference.PreferenceScreen;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.brewcrewfoo.performance.R;
 import com.brewcrewfoo.performance.activities.ParamActivity;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.util.CMDProcessor;
 import com.brewcrewfoo.performance.util.Constants;
 import com.brewcrewfoo.performance.util.GPUClass;
@@ -168,25 +166,6 @@ public class CPUAdvanced extends PreferenceFragment implements SharedPreferences
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-            case R.id.app_settings:
-                Intent intent = new Intent(getActivity(), PCSettings.class);
-                startActivity(intent);
-                break;
-        }
-        return true;
     }
 
     @Override

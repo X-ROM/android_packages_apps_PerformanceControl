@@ -45,9 +45,7 @@ import android.widget.TextView;
 
 import com.brewcrewfoo.performance.R;
 import com.brewcrewfoo.performance.activities.BuildPropEditor;
-import com.brewcrewfoo.performance.activities.FlasherActivity;
 import com.brewcrewfoo.performance.activities.FreezerActivity;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.activities.ResidualsActivity;
 import com.brewcrewfoo.performance.activities.SysctlEditor;
 import com.brewcrewfoo.performance.util.CMDProcessor;
@@ -101,10 +99,6 @@ public class Tools extends PreferenceFragment implements OnSharedPreferenceChang
         mlogcat= findPreference("pref_dmesg");
         mlogcat.setSummary(getString(R.string.ps_logs,dn));
 
-        if(Helpers.binExist("dd").equals(NOT_FOUND) || NO_FLASH){
-            PreferenceCategory hideCat = (PreferenceCategory) findPreference("category_flash_img");
-            getPreferenceScreen().removePreference(hideCat);
-        }
         if(Helpers.binExist("pm").equals(NOT_FOUND)){
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("category_freezer");
             getPreferenceScreen().removePreference(hideCat);
@@ -119,7 +113,6 @@ public class Tools extends PreferenceFragment implements OnSharedPreferenceChang
         }
 
         setRetainInstance(true);
-        setHasOptionsMenu(true);
     }
 
 
@@ -156,23 +149,6 @@ public class Tools extends PreferenceFragment implements OnSharedPreferenceChang
             progressDialog.dismiss();
         }
         super.onDetach();
-    }
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-            case R.id.app_settings:
-                Intent intent = new Intent(context, PCSettings.class);
-                startActivity(intent);
-                break;
-        }
-        return true;
     }
 
     @Override
@@ -260,16 +236,6 @@ public class Tools extends PreferenceFragment implements OnSharedPreferenceChang
             Button theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
             theButton.setOnClickListener(new opListener(alertDialog,0));
 
-        }
-        else if(key.equals(FLASH_KERNEL)) {
-            Intent flash = new Intent(context, FlasherActivity.class);
-            flash.putExtra("mod","kernel");
-            startActivity(flash);
-        }
-        else if(key.equals(FLASH_RECOVERY)) {
-            Intent flash = new Intent(context, FlasherActivity.class);
-            flash.putExtra("mod","recovery");
-            startActivity(flash);
         }
         else if(key.equals(RESIDUAL_FILES)) {
             Intent intent = new Intent(context, ResidualsActivity.class);

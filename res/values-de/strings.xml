@@ -178,11 +178,6 @@ Translation by Rhonin86 & Evisceration
     <!-- CPU info -->
     <string name="kernel_info">Linux Kernel Information</string>
     <string name="cpu_info">CPU Information</string>
-    <string name="first_run_title">Rootberechtigung überprüfen</string>
-    <string name="su_success_title">Erfolgreich!</string>
-    <string name="su_failed_title">Upps!</string>
-    <string name="first_run_message">Die Anwendung überprüft den Rootzugriff und BusyBox.</string>
-    <string name="su_failed_su_or_busybox">Kein Root Zugang oder BusyBox nicht gefunden.</string>
 
     <!-- Tools -->
     <string name="prefcat_sh">Individueller Shell Befehl</string>
@@ -196,18 +191,6 @@ Translation by Rhonin86 & Evisceration
     <string name="wipe_cache_title">Lösche Cache und Dalvik Cache</string>
     <string name="ps_wipe_cache">Cache Partition: %s</string>
     <string name="wipe_cache_msg">Am Ende wird das System neu gestartet.\nFortfahren?</string>
-
-    <string name="prefcat_flash_img">Flash *.img Datei (Direkt oder aus CWM-Zip)</string>
-    <string name="kernel_img_title">Flash Kernel</string>
-    <string name="ps_kernel_img">Flash boot.img Dateien als Kernel. Möglich sind boot.img Dateien oder zip Dateien, die ein Bootimage enthalten</string>
-    <string name="recovery_img_title">Flash Recovery</string>
-    <string name="ps_recovery_img">Flash recovery.img Dateien als Recovery. Möglich sind recovery.img Dateien oder Zip-Dateien, die ein Recoveryimage enthalten</string>
-    <string name="btn_choose">Wähle %s</string>
-    <string name="unsupported_info">Dein Gerät wird nicht unterstützt</string>
-    <string name="flash_info">wird geflasht auf die Partition \n%s\n als</string>
-    <string name="dir_parent">&lt;Parent DIR&gt;</string>
-    <string name="dir">&lt;DIR&gt;</string>
-    <string name="bkexit">Drücke erneut zum Beenden</string>
 
     <string name="prefcat_residual_files">Lösche überflüssige Dateien</string>
     <string name="residual_files_title">Lösche überflüssige Dateien</string>
@@ -308,13 +291,6 @@ Translation by Rhonin86 & Evisceration
     <!-- Vibration Intensity -->
     <string name="prefcat_viber">VIBRATION</string>
     <string name="viber_title">Setze die Vibrationsstärke fest</string>
-    <!-- PC Settings -->
-    <string name="pt_use_light_theme">Benutze das helle Design</string>
-    <string name="ps_use_light_theme">Verwende das helle Holo-Design</string>
-    <string name="pt_widget_bg_color">Widget Hintergrundfarbe</string>
-    <string name="pt_widget_text_color">Widget Textfarbe</string>
-    <string name="pt_ver">"Version - "</string>
-    <string name="pt_show_tabs">Setzte Sichtbarkeit der Tabs</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
     <string name="press_color_to_apply">Wähle die zu benutzende Farbe:</string>

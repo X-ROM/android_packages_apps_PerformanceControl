@@ -36,7 +36,6 @@ import android.support.v4.view.ViewPager;
 import android.view.*;
 import android.widget.*;
 import com.brewcrewfoo.performance.R;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.util.CMDProcessor;
 import com.brewcrewfoo.performance.util.Constants;
 import com.brewcrewfoo.performance.util.Helpers;
@@ -102,26 +101,7 @@ public class BatteryInfo extends Fragment implements SeekBar.OnSeekBarChangeList
         };
         //getActivity().registerReceiver(batteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED) );
         setRetainInstance(true);
-        setHasOptionsMenu(true);
 
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-                case R.id.app_settings:
-                Intent intent = new Intent(context, PCSettings.class);
-                startActivity(intent);
-            break;
-        }
-        return true;
     }
 
     @Override

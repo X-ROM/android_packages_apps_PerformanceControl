@@ -32,7 +32,6 @@ import android.os.Environment;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.brewcrewfoo.performance.widget.PCWidget;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -41,27 +40,6 @@ import java.util.List;
 public class Helpers implements Constants {
 
     private static String mVoltagePath;
-
-    public static boolean checkSu() {
-        if (!new File("/system/bin/su").exists() && !new File("/system/xbin/su").exists()) {
-            Log.e(TAG, " su does not exist!!!");
-            return false; // tell caller to bail...
-        }
-        try {
-            if ((new CMDProcessor().su.runWaitFor("ls /data/app-private")).success()) {
-            //if ((new CMDProcessor().su.runWaitFor("su -c id")).success()) {
-                Log.i(TAG, " SU exists and we have permission");
-                return true;
-            } else {
-                Log.i(TAG, " SU exists but we dont have permission");
-                return false;
-            }
-        }
-        catch (final NullPointerException e) {
-            Log.e(TAG, e.getMessage());
-            return false;
-        }
-    }
 
     public static String readOneLine(String fname) {
         String line = null;
@@ -201,6 +179,7 @@ public class Helpers implements Constants {
     }
 
     public static void updateAppWidget(Context context) {
+/*
         AppWidgetManager widgetManager = AppWidgetManager.getInstance(context);
         ComponentName widgetComponent = new ComponentName(context, PCWidget.class);
         int[] widgetIds = widgetManager.getAppWidgetIds(widgetComponent);
@@ -208,6 +187,7 @@ public class Helpers implements Constants {
         update.setAction("com.brewcrewfoo.performance.ACTION_FREQS_CHANGED");
         update.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIds);
         context.sendBroadcast(update);
+*/
     }
 
     public static Bitmap getBackground(int bgcolor) {
@@ -388,6 +368,7 @@ public class Helpers implements Constants {
         if(i==1) return (Helpers.getNumOfCpus()>=1);
         else if(i==2) return Helpers.showBattery();
         else if(i==4) return Helpers.voltageFileExists();
+        else if(i==8) return false;
         return true;
     }
 

@@ -41,7 +41,6 @@ import android.widget.TextView;
 import com.brewcrewfoo.performance.R;
 import com.brewcrewfoo.performance.activities.KSMActivity;
 import com.brewcrewfoo.performance.activities.MemUsageActivity;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.activities.PackActivity;
 import com.brewcrewfoo.performance.activities.ZramActivity;
 import com.brewcrewfoo.performance.util.CMDProcessor;
@@ -204,18 +203,13 @@ public class MemSettings extends PreferenceFragment implements OnSharedPreferenc
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-            case R.id.app_settings:
-                Intent intent = new Intent(getActivity(), PCSettings.class);
-                startActivity(intent);
-                break;
             case R.id.mem_usage:
-                intent = new Intent(getActivity(), MemUsageActivity.class);
+                Intent intent = new Intent(getActivity(), MemUsageActivity.class);
                 intent.putExtra("tip","mem");
                 startActivity(intent);
                 break;
+            default:
+                return false;
         }
         return true;
     }

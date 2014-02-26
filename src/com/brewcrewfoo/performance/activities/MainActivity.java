@@ -26,8 +26,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.brewcrewfoo.performance.R;
 import com.brewcrewfoo.performance.fragments.*;
@@ -38,11 +42,12 @@ import com.brewcrewfoo.performance.util.Helpers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements Constants,ActivityThemeChangeInterface {
+public class MainActivity extends Fragment implements Constants,ActivityThemeChangeInterface {
 
     SharedPreferences mPreferences;
     PagerTabStrip mPagerTabStrip;
     ViewPager mViewPager;
+    ViewGroup mRootView;
     private boolean mIsLightTheme;
     public static Boolean thide=false;
     public static final int nCpus=Helpers.getNumOfCpus();
@@ -56,26 +61,26 @@ public class MainActivity extends Activity implements Constants,ActivityThemeCha
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                Bundle savedInstanceState) {
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         setTheme();
-        setContentView(R.layout.activity_main);
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mPagerTabStrip = (PagerTabStrip) findViewById(R.id.pagerTabStrip);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_main, container, false);
+        mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+        mPagerTabStrip = (PagerTabStrip) rootView.findViewById(R.id.pagerTabStrip);
         mPagerTabStrip.setBackgroundColor(getResources().getColor(R.color.pc_light_gray));
-        mPagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.pc_blue));
+        mPagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.pc_white));
         mPagerTabStrip.setDrawFullUnderline(true);
 
-        if(savedInstanceState!=null) {
-            TitleAdapter titleAdapter = new TitleAdapter(getFragmentManager());
-            mViewPager.setAdapter(titleAdapter);
-            mViewPager.setCurrentItem(0);
-        }
-        else{
-            checkForSu();
-            TitleAdapter titleAdapter = new TitleAdapter(getFragmentManager());
-            mViewPager.setAdapter(titleAdapter);
-            mViewPager.setCurrentItem(0);
-        }
+        TitleAdapter titleAdapter = new TitleAdapter(getFragmentManager());
+        mViewPager.setAdapter(titleAdapter);
+        mViewPager.setCurrentItem(0);
+
+        return rootView;
     }
     @Override
     public void onSaveInstanceState(Bundle saveState) {
@@ -153,10 +158,10 @@ public class MainActivity extends Activity implements Constants,ActivityThemeCha
     @Override
     public void onResume() {
         super.onResume();
-        if (isThemeChanged() || thide) {
-            thide=false;
-            Helpers.restartPC(this);
-        }
+        //if (isThemeChanged() || thide) {
+        //    thide=false;
+        //    Helpers.restartPC(this);
+        //}
     }
 
     /**
@@ -185,30 +190,7 @@ public class MainActivity extends Activity implements Constants,ActivityThemeCha
     public void setTheme() {
         final boolean is_light_theme = mPreferences.getBoolean(PREF_USE_LIGHT_THEME, false);
         mIsLightTheme = mPreferences.getBoolean(PREF_USE_LIGHT_THEME, false);
-        setTheme(is_light_theme ? R.style.Theme_Light : R.style.Theme_Dark);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            if(resultCode == RESULT_OK){
-                String r= data.getStringExtra("r");
-                if(r!=null && r.equals("ok")) return;
-            }
-        }
-        finish();
-    }
-    private void checkForSu() {
-        if (mPreferences.getBoolean("firstrun", true)) {
-                Intent intent = new Intent(MainActivity.this, checkSU.class);
-                startActivityForResult(intent, 1);
-        }
-        else{
-                if(!Helpers.checkSu()) {
-                    Intent intent = new Intent(MainActivity.this, checkSU.class);
-                    startActivityForResult(intent, 1);
-                }
-        }
+        //setTheme(is_light_theme ? R.style.Theme_Light : R.style.Theme_Dark);
     }
 }
 

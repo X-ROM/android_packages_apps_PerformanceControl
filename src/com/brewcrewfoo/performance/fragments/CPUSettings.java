@@ -19,7 +19,6 @@ import com.brewcrewfoo.performance.activities.GovSetActivity;
 import com.brewcrewfoo.performance.activities.IOSetActivity;
 import com.brewcrewfoo.performance.activities.MainActivity;
 import com.brewcrewfoo.performance.activities.MemUsageActivity;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.util.Constants;
 import com.brewcrewfoo.performance.util.Helpers;
 
@@ -204,18 +203,11 @@ public class CPUSettings extends Fragment implements SeekBar.OnSeekBarChangeList
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-            case R.id.app_settings:
-                Intent intent = new Intent(context, PCSettings.class);
-                startActivity(intent);
-                break;
             case R.id.gov_settings:
                 for (String aSupported : supported) {
                     if (aSupported.equals(MainActivity.mCurGovernor[MainActivity.curcpu])) {
                         if(new File(GOV_SETTINGS_PATH + MainActivity.mCurGovernor[MainActivity.curcpu]).exists()){
-                            intent = new Intent(context, GovSetActivity.class);
+                            Intent intent = new Intent(context, GovSetActivity.class);
                             intent.putExtra("curgov", MainActivity.mCurGovernor[MainActivity.curcpu]);
                             startActivity(intent);
                         }
@@ -225,16 +217,18 @@ public class CPUSettings extends Fragment implements SeekBar.OnSeekBarChangeList
                 break;
             case R.id.io_settings:
                 if(new File(IO_TUNABLE_PATH).exists()){
-                    intent = new Intent(context, IOSetActivity.class);
+                    Intent intent = new Intent(context, IOSetActivity.class);
                     intent.putExtra("curio", MainActivity.mCurIO[MainActivity.curcpu]);
                     startActivity(intent);
                 }
                 break;
             case R.id.cpu_info:
-                intent = new Intent(getActivity(), MemUsageActivity.class);
+                Intent intent = new Intent(getActivity(), MemUsageActivity.class);
                 intent.putExtra("tip","cpu");
                 startActivity(intent);
                 break;
+            default:
+                return false;
         }
         return true;
     }
@@ -429,7 +423,7 @@ public class CPUSettings extends Fragment implements SeekBar.OnSeekBarChangeList
             mMinSlider.setEnabled(true);
         }
         mCurCpu.setText(Integer.toString(i+1));
-        mCurCpu.setTextColor(res.getColor(R.color.pc_blue));
+        mCurCpu.setTextColor(res.getColor(R.color.pc_white));
 
         if(MainActivity.mCPUon[MainActivity.curcpu].equals("0")){
              mCurCpu.setTextColor(res.getColor(R.color.pc_red));

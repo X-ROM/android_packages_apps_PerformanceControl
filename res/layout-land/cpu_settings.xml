@@ -58,7 +58,7 @@ Copyright (C) 2012  James Roberts
                     android:layout_height="wrap_content"
                     android:id="@+id/curcpu"
                     android:gravity="center_vertical|center_horizontal"
-                    android:textColor="@color/pc_blue"
+                    android:textColor="@color/pc_white"
                     android:textSize="13dp"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentEnd="true"

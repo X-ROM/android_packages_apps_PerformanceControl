@@ -198,11 +198,6 @@ Copyright (C) 2012  James Roberts
     <!-- CPU info -->
     <string name="kernel_info">LINUX 内核信息</string>
     <string name="cpu_info">CPU 信息</string>
-    <string name="first_run_title">首先检查 ROOT 状态</string>
-    <string name="su_success_title">成功！</string>
-    <string name="su_failed_title">啊呀！</string>
-    <string name="first_run_message">本应用需要检查是否有 ROOT 权限和安装 busybox</string>
-    <string name="su_failed_su_or_busybox">无法获得 ROOT 权限或找不到 busybox</string>
     
     <!-- Tools -->
     <string name="prefcat_sh">定制 SHELL 命令</string>
@@ -216,18 +211,6 @@ Copyright (C) 2012  James Roberts
     <string name="wipe_cache_title">清除 cache 和 dalvik cache</string>
     <string name="ps_wipe_cache">Cache 分区：%s</string>
     <string name="wipe_cache_msg">最后系统将重启，继续？</string>
-
-    <string name="prefcat_flash_img">刷 IMG 文件</string>
-    <string name="kernel_img_title">刷内核</string>
-    <string name="ps_kernel_img">把 boot.img 文件作为内核刷入。支持选择单个 boot.img 文件或任意含有 boot.img 的 zip 文件。</string>
-    <string name="recovery_img_title">刷 RECOVERY</string>
-    <string name="ps_recovery_img">把 recovery.img 作为 recovery 刷入。支持选择单个 recovery.img 文件或任意含有 recovery.img 的 zip 文件</string>
-    <string name="btn_choose">选择 %s</string>
-    <string name="unsupported_info">不支持你的设备。</string>
-    <string name="flash_info">将会被刷入分区\n%s\n 做</string>
-    <string name="dir_parent">&lt;上级目录&gt;</string>
-    <string name="dir">&lt;目录&gt;</string>
-    <string name="bkexit">再按一次退出</string>
 
     <string name="prefcat_residual_files">清除残余文件</string>
     <string name="residual_files_title">清除残余文件</string>
@@ -329,13 +312,6 @@ Copyright (C) 2012  James Roberts
     <string name="prefcat_viber">震动</string>
     <string name="viber_title">震动强度设置</string>
 
-    <!-- PC Settings -->
-    <string name="pt_use_light_theme">使用浅色主题</string>
-    <string name="ps_use_light_theme">如果选择，性能控制应用将采用浅色 Holo 主题</string>
-    <string name="pt_widget_bg_color">桌面小部件背景色</string>
-    <string name="pt_widget_text_color">桌面小部件文字色</string>
-    <string name="pt_ver">"版本 - "</string>
-    <string name="pt_show_tabs">标签页显示设置</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">色彩选择</string>
     <string name="press_color_to_apply">点击色彩以应用</string>

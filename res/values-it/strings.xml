@@ -182,11 +182,6 @@ translation by Stefano187
     <!-- CPU info -->
     <string name="kernel_info">INFORMAZIONI KERNEL LINUX</string>
     <string name="cpu_info">Informazioni CPU</string>
-    <string name="first_run_title">Verifica del root</string>
-    <string name="su_success_title">Riuscita!</string>
-    <string name="su_failed_title">Oops!</string>
-    <string name="first_run_message">L\'applicazione deve verificare l\'accesso come root e la presenza di busybox.</string>
-    <string name="su_failed_su_or_busybox">Accesso come root fallito o busibox non trovato.</string>
 
     <!-- Tools -->
     <string name="prefcat_sh">COMANDO SHELL PERSONALIZZATO</string>
@@ -200,18 +195,6 @@ translation by Stefano187
     <string name="wipe_cache_title">Elimina cache e dalvik cache</string>
     <string name="ps_wipe_cache">Cache partition: %s</string>
     <string name="wipe_cache_msg">Al termine, il telefono si riavvierà. Continuare?</string>
-
-    <string name="prefcat_flash_img">FLASH IMG FILE</string>
-    <string name="kernel_img_title">Flash KERNEL</string>
-    <string name="ps_kernel_img">Flash di un kernel usando un file boot.img. Puoi scegliere o direttamente un file boot.img o un file zip che contenga un boot.img</string>
-    <string name="recovery_img_title">Flash RECOVERY</string>
-    <string name="ps_recovery_img">Flash di una recovery usando un file recovery.img. Puoi scegliere o direttamente un file boot.img o un file zip che contenga un boot.img</string>
-    <string name="btn_choose">Scegliere %s</string>
-    <string name="unsupported_info">Dispositivo non supportato.</string>
-    <string name="flash_info">sarà estratto sulla partizione \n%s\n come</string>
-    <string name="dir_parent">&lt;Parent DIR&gt;</string>
-    <string name="dir">&lt;DIR&gt;</string>
-    <string name="bkexit">Premi ancora per uscire</string>
 
     <string name="prefcat_residual_files">ELIMINA FILE RESIDUI</string>
     <string name="residual_files_title">Elimina file residui</string>
@@ -312,13 +295,6 @@ translation by Stefano187
     <!-- Vibration Intensity -->
     <string name="prefcat_viber">VIBRAZIONE</string>
     <string name="viber_title">Controllo intensità vibrazione</string>
-    <!-- PC Settings -->
-    <string name="pt_use_light_theme">Usa tema chiaro</string>
-    <string name="ps_use_light_theme">Se selezionato, Performance Control userà un tema Holo chiaro</string>
-    <string name="pt_widget_bg_color">Colore bg Widget</string>
-    <string name="pt_widget_text_color">Colore testo Widget</string>
-    <string name="pt_ver">"Versione - "</string>
-    <string name="pt_show_tabs">Impostare Tabs Visibilità</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Selettore Colore</string>
     <string name="press_color_to_apply">Premi sul colore per applicare</string>

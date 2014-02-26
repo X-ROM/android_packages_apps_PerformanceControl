@@ -39,7 +39,6 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.brewcrewfoo.performance.R;
-import com.brewcrewfoo.performance.activities.PCSettings;
 import com.brewcrewfoo.performance.activities.PFKActivity;
 import com.brewcrewfoo.performance.activities.TouchScreenSettings;
 import com.brewcrewfoo.performance.activities.VMSettings;
@@ -166,33 +165,11 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
 		final String readahead=Helpers.readOneLine(READ_AHEAD_PATH);
 	    mReadAhead.setValue(readahead);
         mReadAhead.setSummary(getString(R.string.ps_read_ahead, readahead + "  kb"));
-
-            
-        setHasOptionsMenu(true);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.tablist:
-                Helpers.getTabList(getString(R.string.menu_tab),(ViewPager) getView().getParent(),getActivity());
-                break;
-            case R.id.app_settings:
-                Intent intent = new Intent(context, PCSettings.class);
-                startActivity(intent);
-            break;
-        }
-        return true;
     }
 
     @Override

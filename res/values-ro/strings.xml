@@ -173,11 +173,6 @@ Translation by Laurentiu1996
     <!-- CPU info -->
     <string name="kernel_info">INFORMAŢII DESPRE LINUX KERNEL</string>
     <string name="cpu_info">Informaţii CPU</string>
-    <string name="first_run_title">Verificarea root-ului pentru prima dată</string>
-    <string name="su_success_title">Succes!</string>
-    <string name="su_failed_title">Oops!</string>
-    <string name="first_run_message">Aplicaţia trebuie sa verifie accesul la root şi busybox.</string>
-    <string name="su_failed_su_or_busybox">Accesul la root a eşuat sau busybox nu a fost găsit.</string>
 
     <!-- Tools -->
     <string name="prefcat_sh">COMANDĂ SHELL</string>
@@ -191,18 +186,6 @@ Translation by Laurentiu1996
     <string name="wipe_cache_title">Şterge cache şi dalvik cache</string>
     <string name="ps_wipe_cache">Partiţia Cache: %s</string>
     <string name="wipe_cache_msg">La sfârşit, sistemul va reporni. Continuaţi?</string>
-
-    <string name="prefcat_flash_img">FLASH FIŞIER IMG</string>
-    <string name="kernel_img_title">Flash KERNEL</string>
-    <string name="ps_kernel_img">Flash fişier boot.img ca şi kernel. Se poate selecta un fişier individual sau orice fişier zip ce conţine boot.img</string>
-    <string name="recovery_img_title">Flash RECOVERY</string>
-    <string name="ps_recovery_img">Flash fişier recovery.img ca şi recovery.  Se poate selecta un fişier individual sau orice fişier zip ce conţine recovery.img</string>
-    <string name="btn_choose">Alege %s</string>
-    <string name="unsupported_info">Telefonul dumneavoastră nu este suportat.</string>
-    <string name="flash_info">va fi flash-uit pe partiţia\n%s\n ca şi</string>
-    <string name="dir_parent">&lt;DIR părinte&gt;</string>
-    <string name="dir">&lt;DIR&gt;</string>
-    <string name="bkexit">Apăsaţi din nou pentru ieşire</string>
 
     <string name="prefcat_residual_files">ŞTERGERE FIŞIERE REZIDUALE</string>
     <string name="residual_files_title">Ştergerea fişierelor reziduale</string>
@@ -303,13 +286,6 @@ Translation by Laurentiu1996
     <!-- Vibration Intensity -->
     <string name="prefcat_viber">Vibrare</string>
     <string name="viber_title">Controlul intensităţii vibraţiilor</string>
-    <!-- PC Settings -->
-    <string name="pt_use_light_theme">Utilizaţi o temă deschisă</string>
-    <string name="ps_use_light_theme">Dacă este bifată, aplicaţia va folosi o temă deschisă Holo</string>
-    <string name="pt_widget_bg_color">Culoarea Widgetului  bg</string>
-    <string name="pt_widget_text_color">Culoarea textului Widgetului</string>
-    <string name="pt_ver">"Versiune - "</string>
-    <string name="pt_show_tabs">Setare Vizibilitate Tab-uri</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Alegerea Culorii</string>
     <string name="press_color_to_apply">Apăsaţi pe Culoare pentru aplicare</string>
