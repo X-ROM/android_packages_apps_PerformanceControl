@@ -106,7 +106,7 @@ public class BatteryInfo extends Fragment implements SeekBar.OnSeekBarChangeList
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup root,Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.battery_info, root, false);
+        View view = inflater.inflate(R.layout.battery_perf, root, false);
 
         mbattery_percent = (TextView) view.findViewById(R.id.batt_percent);
         mbattery_volt = (TextView) view.findViewById(R.id.batt_volt);
