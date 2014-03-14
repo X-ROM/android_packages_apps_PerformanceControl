@@ -497,7 +497,7 @@ public class BootService extends Service implements Constants {
     	protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Toast.makeText(c, TAG+ " boot complete", Toast.LENGTH_SHORT).show();
-            if (FASTCHARGE_PATH!=null) {
+            /*if (FASTCHARGE_PATH!=null) {
                 if(Helpers.readOneLine(FASTCHARGE_PATH).equals("1")){
                     // add notification to warn user they can only charge
                     CharSequence contentTitle = c.getText(R.string.fast_charge_notification_title);
@@ -511,7 +511,7 @@ public class BootService extends Service implements Constants {
                     NotificationManager nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.notify(1337, n);//1337
                 }
-            }
+            }*/
             servicesStarted = true;
             stopSelf();
         }
