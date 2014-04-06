@@ -54,12 +54,12 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
 	private Preference mBltimeout,mViber,mPFK,mDynamicWriteBackActive,mDynamicWriteBackSuspend,mVM,mTouchScr;
 	private CheckBoxPreference mBltouch;
 
-    private CheckBoxPreference mBln,mDynamicWriteBackOn,mDsync,mWifiPM;
+    private CheckBoxPreference mBln,mDynamicWriteBackOn,mDsync,mWifiPM,mPowerSuspend;
 	private ListPreference mReadAhead;
 	private int mSeekbarProgress;
 	private EditText settingText;
 	private String sreadahead;
-    private String BLN_PATH,VIBE_PATH,WIFIPM_PATH;
+    private String BLN_PATH,VIBE_PATH,WIFIPM_PATH,POWERSUSPEND_PATH;
     private Context context;
     VibratorClass vib=new VibratorClass();
 
@@ -74,13 +74,14 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
 	    sreadahead=getResources().getString(R.string.ps_read_ahead,"");
 
         mReadAhead = (ListPreference) findPreference(PREF_READ_AHEAD);
-        mBltimeout= findPreference(PREF_BLTIMEOUT);
-        mBltouch=(CheckBoxPreference) findPreference(PREF_BLTOUCH);
-        mBln=(CheckBoxPreference) findPreference(PREF_BLN);
-        mWifiPM=(CheckBoxPreference) findPreference("pref_wifi_pm");
-        mTouchScr=findPreference("touchscr_settings");
-        mViber= findPreference("pref_viber");
-        mVM= findPreference("vm_settings");
+        mBltimeout = findPreference(PREF_BLTIMEOUT);
+        mBltouch = (CheckBoxPreference) findPreference(PREF_BLTOUCH);
+        mBln = (CheckBoxPreference) findPreference(PREF_BLN);
+        mWifiPM = (CheckBoxPreference) findPreference("pref_wifi_pm");
+        mPowerSuspend = (CheckBoxPreference) findPreference("pref_power_suspend");
+        mTouchScr = findPreference("touchscr_settings");
+        mViber = findPreference("pref_viber");
+        mVM = findPreference("vm_settings");
 
         mDsync=(CheckBoxPreference) findPreference(PREF_DSYNC);
 
@@ -94,10 +95,10 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
         if (!new File(DSYNC_PATH).exists()) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("dsync");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             mDsync.setChecked(Helpers.readOneLine(DSYNC_PATH).equals("1"));
         }
+
         if (!new File(PFK_HOME_ENABLED).exists() || !new File(PFK_MENUBACK_ENABLED).exists()) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("pfk");
             getPreferenceScreen().removePreference(hideCat);
@@ -106,16 +107,14 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
         if (!new File(BL_TIMEOUT_PATH).exists()) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("bltimeout");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             mBltimeout.setSummary(Helpers.readOneLine(BL_TIMEOUT_PATH));
         }
 
         if (!new File(BL_TOUCH_ON_PATH).exists()) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("bltouch");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             mBltouch.setChecked(Helpers.readOneLine(BL_TOUCH_ON_PATH).equals("1"));
         }
 
@@ -123,8 +122,7 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
         if (BLN_PATH==null) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("bln");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             mBln.setChecked(Helpers.readOneLine(BLN_PATH).equals("1"));
         }
 
@@ -133,37 +131,42 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
             getPreferenceScreen().removePreference(hideCat);
         }
 
-
         VIBE_PATH=vib.get_path();
-
         if (VIBE_PATH==null) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("viber");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             mViber.setSummary(vib.get_val(VIBE_PATH));
         }
 
         if (!new File(DYNAMIC_DIRTY_WRITEBACK_PATH).exists()) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("cat_dynamic_write_back");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             boolean ison=Helpers.readOneLine(DYNAMIC_DIRTY_WRITEBACK_PATH).equals("1");
             mDynamicWriteBackOn.setChecked(ison);
             mDynamicWriteBackActive.setSummary(Helpers.readOneLine(DIRTY_WRITEBACK_ACTIVE_PATH));
             mDynamicWriteBackSuspend.setSummary(Helpers.readOneLine(DIRTY_WRITEBACK_SUSPEND_PATH));
         }
+
         WIFIPM_PATH=Helpers.wifipm_path();
         if (WIFIPM_PATH==null) {
             PreferenceCategory hideCat = (PreferenceCategory) findPreference("wifi_pm");
             getPreferenceScreen().removePreference(hideCat);
-        }
-        else{
+        } else {
             mWifiPM.setChecked(Helpers.readOneLine(WIFIPM_PATH).equals("1"));
         }
-		final String readahead=Helpers.readOneLine(READ_AHEAD_PATH);
-	    mReadAhead.setValue(readahead);
+
+        POWERSUSPEND_PATH=Helpers.powersuspend_path();
+        if (POWERSUSPEND_PATH==null) {
+            PreferenceCategory hideCat = (PreferenceCategory) findPreference("power_suspend");
+            getPreferenceScreen().removePreference(hideCat);
+        } else {
+            mPowerSuspend.setChecked(Helpers.readOneLine(POWERSUSPEND_PATH).equals("1"));
+        }
+
+        final String readahead=Helpers.readOneLine(READ_AHEAD_PATH);
+        mReadAhead.setValue(readahead);
         mReadAhead.setSummary(getString(R.string.ps_read_ahead, readahead + "  kb"));
     }
 
@@ -175,65 +178,54 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-        if (preference == mDsync){
-            if (Helpers.readOneLine(DSYNC_PATH).equals("0")){
+        if (preference == mDsync) {
+            if (Helpers.readOneLine(DSYNC_PATH).equals("0")) {
                 new CMDProcessor().su.runWaitFor("busybox echo 1 > " + DSYNC_PATH);
-            }
-            else{
+            } else {
                 new CMDProcessor().su.runWaitFor("busybox echo 0 > " + DSYNC_PATH);
             }
                 return true;
-        }
-        else if (preference == mBltimeout){
+        } else if (preference == mBltimeout) {
                 String title = getString(R.string.bltimeout_title);
                 int currentProgress = Integer.parseInt(Helpers.readOneLine(BL_TIMEOUT_PATH));
                 openDialog(currentProgress, title, 0,5000, preference,BL_TIMEOUT_PATH, PREF_BLTIMEOUT);
                 return true;
-        }
-        else if (preference == mBltouch){
-            if (Helpers.readOneLine(BL_TOUCH_ON_PATH).equals("0")){
+        } else if (preference == mBltouch) {
+            if (Helpers.readOneLine(BL_TOUCH_ON_PATH).equals("0")) {
                 new CMDProcessor().su.runWaitFor("busybox echo 1 > " + BL_TOUCH_ON_PATH);
-            }
-            else{
+            } else {
                 new CMDProcessor().su.runWaitFor("busybox echo 0 > " + BL_TOUCH_ON_PATH);
             }
             return true;
-        }
-        else if (preference == mBln){
-            if (Helpers.readOneLine(BLN_PATH).equals("0")){
+        } else if (preference == mBln) {
+            if (Helpers.readOneLine(BLN_PATH).equals("0")) {
                 new CMDProcessor().su.runWaitFor("busybox echo 1 > " + BLN_PATH);
-            }
-            else{
+            } else {
                 new CMDProcessor().su.runWaitFor("busybox echo 0 > " + BLN_PATH);
             }
             return true;
-        }
-        else if (preference == mTouchScr) {
+        } else if (preference == mTouchScr) {
             Intent intent = new Intent(context, TouchScreenSettings.class);
             startActivity(intent);
             return true;
-        }
-        else if (preference == mViber){
+        } else if (preference == mViber) {
             String title = getString(R.string.viber_title);
             int currentProgress = Integer.parseInt(vib.get_val(VIBE_PATH));
             openDialog(currentProgress, title, vib.get_min(),vib.get_max(), preference,VIBE_PATH, "pref_viber");
             return true;
-        }
-        else if (preference == mPFK){
+        } else if (preference == mPFK) {
             Intent intent = new Intent(context, PFKActivity.class);
             startActivity(intent);
             return true;
-        }
-        else if (preference == mDynamicWriteBackOn){
-            if (Helpers.readOneLine(DYNAMIC_DIRTY_WRITEBACK_PATH).equals("0")){
+        } else if (preference == mDynamicWriteBackOn){
+            if (Helpers.readOneLine(DYNAMIC_DIRTY_WRITEBACK_PATH).equals("0")) {
                 new CMDProcessor().su.runWaitFor("busybox echo 1 > " + DYNAMIC_DIRTY_WRITEBACK_PATH);
             }
             else{
                 new CMDProcessor().su.runWaitFor("busybox echo 0 > " + DYNAMIC_DIRTY_WRITEBACK_PATH);
             }
                 return true;
-        }
-        else if (preference == mDynamicWriteBackActive) {
+        } else if (preference == mDynamicWriteBackActive) {
                 String title = getString(R.string.dynamic_writeback_active_title);
                 int currentProgress = Integer.parseInt(Helpers.readOneLine(DIRTY_WRITEBACK_ACTIVE_PATH));
                 openDialog(currentProgress, title, 0,5000, preference,DIRTY_WRITEBACK_ACTIVE_PATH, PREF_DIRTY_WRITEBACK_ACTIVE);
@@ -244,18 +236,22 @@ public class Advanced extends PreferenceFragment implements OnSharedPreferenceCh
                 int currentProgress = Integer.parseInt(Helpers.readOneLine(DIRTY_WRITEBACK_SUSPEND_PATH));
                 openDialog(currentProgress, title, 0,5000, preference,DIRTY_WRITEBACK_SUSPEND_PATH, PREF_DIRTY_WRITEBACK_SUSPEND);
                 return true;
-        }
-        else if (preference == mVM) {
+        } else if (preference == mVM) {
             Intent intent = new Intent(context, VMSettings.class);
             startActivity(intent);
             return true;
-        }
-        else if (preference == mWifiPM){
-            if (Helpers.readOneLine(WIFIPM_PATH).equals("0")){
+        } else if (preference == mWifiPM) {
+            if (Helpers.readOneLine(WIFIPM_PATH).equals("0")) {
                 new CMDProcessor().su.runWaitFor("busybox echo 1 > " + WIFIPM_PATH);
-            }
-            else{
+            } else {
                 new CMDProcessor().su.runWaitFor("busybox echo 0 > " + WIFIPM_PATH);
+            }
+            return true;
+        } else if (preference == mPowerSuspend) {
+            if (Helpers.readOneLine(POWERSUSPEND_PATH).equals("0")) {
+                new CMDProcessor().su.runWaitFor("busybox echo 1 > " + POWERSUSPEND_PATH);
+            } else {
+                new CMDProcessor().su.runWaitFor("busybox echo 0 > " + POWERSUSPEND_PATH);
             }
             return true;
         }

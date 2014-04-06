@@ -75,6 +75,7 @@ public class BootService extends Service implements Constants {
             final String VIBE_PATH=vib.get_path();
             final String BLN_PATH=Helpers.bln_path();
             final String WIFIPM_PATH=Helpers.wifipm_path();
+            final String POWERSUSPEND_PATH=Helpers.powersuspend_path();
             final String gov = preferences.getString(PREF_GOV, Helpers.readOneLine(GOVERNOR_PATH));
             final String io = preferences.getString(PREF_IO, Helpers.getIOScheduler(IO_SCHEDULER_PATH));
             final float maxdisk = Helpers.getMem("MemTotal") / 1024;
@@ -301,6 +302,14 @@ public class BootService extends Service implements Constants {
                 }
                 else{
                     sb.append("busybox echo 0 > ").append(WIFIPM_PATH).append(";\n");
+                }
+            }
+            if (POWERSUSPEND_PATH!=null) {
+                if (preferences.getBoolean("pref_power_suspend", false)) {
+                    sb.append("busybox echo 1 > ").append(POWERSUSPEND_PATH).append(";\n");
+                }
+                else{
+                    sb.append("busybox echo 0 > ").append(POWERSUSPEND_PATH).append(";\n");
                 }
             }
             if (VIBE_PATH!=null) {

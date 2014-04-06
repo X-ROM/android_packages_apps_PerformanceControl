@@ -433,6 +433,13 @@ public class Helpers implements Constants {
             return null;
         }
     }
+    public static String powersuspend_path() {
+        if (new File("/sys/kernel/power_suspend/power_suspend_state").exists()) {
+            return "/sys/kernel/power_suspend/power_suspend_state";
+        } else {
+            return null;
+        }
+    }
     public static String hotplug_path() {
         if (new File("/sys/devices/virtual/misc/mako_hotplug_control").exists()) {
             return "/sys/devices/virtual/misc/mako_hotplug_control";
